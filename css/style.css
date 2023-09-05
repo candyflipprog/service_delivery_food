@@ -537,6 +537,28 @@ button {
     color: #ffffff;
 }
 
+.uncounter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 32px;
+    background: #ffffff;
+    border: 1px solid #40a9ff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #40a9ff;
+}
+
+.uncounter-button:hover {
+    background: #40a9ff;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
 .counter {
     font-size: 16px;
     line-height: 24px;

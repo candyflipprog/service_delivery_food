@@ -4,7 +4,7 @@ export async function renderingDiners() {
             const container = document.querySelector(".cards-restaurants");
             for(let elem of json.db.partners) {
                 const itemURL = document.createElement("a");
-                itemURL.href = `restaurant.html`;
+                itemURL.href = `restaurant.html?id=${elem.products}`;
                 itemURL.classList.add("card");
                 itemURL.classList.add("card-restaurant");
 
