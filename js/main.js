@@ -5,13 +5,12 @@ import { openCart } from "./openCart.js";
 
     const modalAuth = document.querySelector(".modal-auth");
     const authBTN = document.querySelector(".button-auth");
-    const loginInput = document.getElementById("login");
     const cartBTN = document.getElementById("cart-button");
     const exitBTN = document.querySelector(".button-out");
     const username = document.querySelector(".user-name");
 
 document.addEventListener("DOMContentLoaded", async () => {
-    renderingDiners();    
+    renderingDiners();
     searchDiners();
     auth();
     openCart();
@@ -23,6 +22,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         exitBTN.style.display = "flex";
         username.style.display = "flex";
 
-        username.textContent = `${loginInput.value}`;
+        username.textContent = localStorage.getItem("users");
     }
 });

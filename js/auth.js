@@ -8,11 +8,11 @@ export function auth() {
     const exitBTN = document.querySelector(".button-out");
     const username = document.querySelector(".user-name");
     const closeBTN = document.querySelector(".close-auth");
-    
+
     authBTN.addEventListener("click", () => {
         modalAuth.style.display = "flex";
     });
-    
+
     loginBTN.addEventListener("click", (event) => {
         event.preventDefault();
         if(loginInput.value == "" || passwordInput.value == "") {
@@ -29,10 +29,10 @@ export function auth() {
             username.style.display = "flex";
 
             username.textContent = `${loginInput.value}`;
-            
+
         }
     });
-    
+
     exitBTN.addEventListener("click", () => {
         authBTN.style.display = "flex";
         modalAuth.style.display = "none"
@@ -40,7 +40,7 @@ export function auth() {
         exitBTN.style.display = "none";
         username.style.display = "none";
         localStorage.setItem("status", false);
-    });    
+    });
 
     closeBTN.addEventListener("click", () => {
         modalAuth.style.display = "none";
