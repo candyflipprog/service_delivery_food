@@ -1,6 +1,5 @@
 export function openCart() {
     const modalCart = document.querySelector(".modal-cart");
-
     const openCartBTN = document.querySelector(".button-cart");
     const closeCartBTN = document.querySelector(".close");
     const clearCartBTN = document.querySelector(".clear-cart")
@@ -33,7 +32,6 @@ export function openCart() {
         });
     });
     
-    counterBTN.addEventListener("click", () => {
-
-    });
 }
+
+openCart();

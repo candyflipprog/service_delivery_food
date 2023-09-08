@@ -6,16 +6,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>PizzaBurger — доставка еды на дом</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet" />
+	<script src="./js/auth.js" defer type="module"></script>
 	<link rel="stylesheet" href="css/normalize.css" />
 	<link rel="stylesheet" href="css/style.css" />
     <script src="./js/renderingProducts.js" defer></script>
-  </head>
+	<script src="./js/addProductToCart.js" defer type="module"></script>
+	<script src="./js/openCart.js" defer type="module"></script>
+	<script src="./js/authRest.js" defer></script>
+</head>
 
 <body>
 	<div class="container">
 		<header class="header">
 			<a href="index.html" class="logo">
-				<img src="img/icon/logo.svg" alt="Logo" />
+				<img src="img/icon/logo.svg" alt="Logo"/>
 			</a>
 			<label class="address">
 				<input type="text" class="input input-address" placeholder="Адрес доставки" />

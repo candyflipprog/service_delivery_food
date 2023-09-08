@@ -1,4 +1,4 @@
-export function auth() {
+function authRest() {
     const modalAuth = document.querySelector(".modal-auth");
     const authBTN = document.querySelector(".button-auth");
     const loginInput = document.getElementById("login");
@@ -48,13 +48,14 @@ export function auth() {
     });
 }
 
-if(localStorage.getItem("status") == "true") {
-    document.querySelector(".button-auth").style.display = "none";
-    document.querySelector(".modal-auth").style.display = "none"
-    document.querySelector("#cart-button").style.display = "flex";
-    document.querySelector(".button-out").style.display = "flex";
-    document.querySelector(".user-name").style.display = "flex";
-    document.querySelector(".user-name").textContent = localStorage.getItem("users");
-}
+    if(localStorage.getItem("status") == "true") {
+        document.querySelector(".button-auth").style.display = "none";
+        document.querySelector(".modal-auth").style.display = "none"
+        document.querySelector("#cart-button").style.display = "flex";
+        document.querySelector(".button-out").style.display = "flex";
+        document.querySelector(".user-name").style.display = "flex";
 
-auth();
+        document.querySelector(".user-name").textContent = localStorage.getItem("users");
+    }
+
+authRest();
