@@ -66,7 +66,7 @@ async function renderingProducts(filename) {
     )
 }
 
-let urlParams = new URLSearchParams(window.location.search);
-let myParam = urlParams.get('id');
+let defaultLocation = new URLSearchParams(window.location.search);
+let locationParam = defaultLocation.get('id');
 
-renderingProducts(myParam);
+renderingProducts(locationParam);

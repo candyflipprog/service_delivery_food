@@ -28,8 +28,9 @@ export function auth() {
             exitBTN.style.display = "flex";
             username.style.display = "flex";
 
-            username.textContent = `${loginInput.value}`;
+            username.textContent = loginInput.value;
 
+            document.getElementById("logInForm").reset();
         }
     });
 
