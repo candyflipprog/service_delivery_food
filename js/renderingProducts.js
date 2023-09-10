@@ -37,15 +37,6 @@ async function renderingProducts(filename) {
                 itemBTN.classList.add("button-primary");
                 itemBTN.classList.add("button-add-cart");
                 itemBTN.id = elem.id;
-                // itemBTN.addEventListener("click", () => {
-                //     const card = {
-                //         name: itemCardTitle.textContent,
-                //         price: elem.price,
-                //         id: elem.id,
-                //         count: 1
-                //     }
-                //     localStorage.setItem("products", card);
-                // });
 
                 const cardText = document.createElement("span");
                 cardText.classList.add("button-card-text");

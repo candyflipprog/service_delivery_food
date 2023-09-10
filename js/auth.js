@@ -1,4 +1,4 @@
-export function auth() {
+function auth() {
     const modalAuth = document.querySelector(".modal-auth");
     const authBTN = document.querySelector(".button-auth");
     const loginInput = document.getElementById("login");
@@ -54,7 +54,8 @@ if(localStorage.getItem("status") == "true") {
     document.querySelector("#cart-button").style.display = "flex";
     document.querySelector(".button-out").style.display = "flex";
     document.querySelector(".user-name").style.display = "flex";
+
     document.querySelector(".user-name").textContent = localStorage.getItem("users");
-}
+};
 
 auth();
