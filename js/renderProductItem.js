@@ -3,20 +3,23 @@ export function renderProductItem(productItem) {
 
     const foodRowItem = document.createElement("div");
     foodRowItem.classList.add("food-row");
-  
+    foodRowItem.id = productItem.foodId;
+
     const foodNameItem = document.createElement("span");
     foodNameItem.classList.add("food-name");
-    foodNameItem.textContent = productItem.foodName;    
+    foodNameItem.textContent = productItem.foodName;  
     
     const foodPriceItem = document.createElement("strong");
     foodPriceItem.classList.add("food-price");
     foodPriceItem.textContent = `${productItem.foodPrice} ₽`;    
+    foodPriceItem.id = productItem.foodId;
     
     const foodCounterItem = document.createElement("div");
     foodCounterItem.classList.add("food-counter");    
     
     const foodUncounterBTN = document.createElement("button");
     foodUncounterBTN.classList.add("counter-button");
+    foodUncounterBTN.id = "uncounter-btn";
     foodUncounterBTN.textContent = "-";
     
     const foodCounterText = document.createElement("span");

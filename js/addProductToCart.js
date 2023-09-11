@@ -1,17 +1,19 @@
 import { renderProductItem } from "./renderProductItem.js";
+import { updatePrice } from "./updatePrice.js";
 
 export function addProductToCart() {
     setTimeout(() => {
         const addProductToCartBTN = document.querySelectorAll(".button-add-cart");
-    
-        for (let i = 0; i < addProductToCartBTN.length; i++) {
-            const [urlItem, itemId] = window.location.href.split("=");
 
-            fetch(`../db/${itemId}`)
-                .then((response) => response.json())
-                .then((json) => {
+        const [urlItem, itemId] = window.location.href.split("=");
+        fetch(`../db/${itemId}`)
+            .then((response) => response.json())
+            .then((json) => {
+                for (let i = 0; i < addProductToCartBTN.length; i++) {
                     for (let item of json) {
                         addProductToCartBTN[i].addEventListener("click", (event) => {
+                            event.preventDefault();
+
                             if (event.target.id == item.id) {
                                 let productItemObject = {
                                     foodId: item.id,
@@ -22,7 +24,7 @@ export function addProductToCart() {
 
                                 let oldItems = localStorage.getItem("foodItems");
                                 let newItems = oldItems ? JSON.parse(oldItems) : [];
-                                
+
                                 let status = false;
 
                                 for (let statusItem of newItems) {
@@ -34,56 +36,30 @@ export function addProductToCart() {
                                     }
                                 }
 
-                                if (status != true) {
+                                if (!status) {
                                     newItems.push(productItemObject);
                                 }
 
                                 localStorage.setItem("foodItems", JSON.stringify(newItems));
-                            
-                                renderProductItem(productItemObject);
 
-                                alert("Вы успешно добавили продукт!");
-                                location.reload();
+                                updatePrice();
+                                renderProductItem(productItemObject);
                             }
                         });
                     }
-                });
-            }
+                }
+            });
     }, 100);
 };
 
 addProductToCart();
 
-
 if (localStorage.getItem("foodItems")) {
     const foodItems = JSON.parse(localStorage.getItem("foodItems"));
-    const modalPriceTag = document.querySelector(".modal-pricetag");
-    const priceArr = [];
-
-    let currentValue = 0;
 
     for (let item of foodItems) {
-        priceArr.push(item.foodPrice);
-        
         renderProductItem(item);
+        updatePrice();
     }
-    
-    let resultPrice = priceArr.map((item) => currentValue += item);        
-    modalPriceTag.textContent = `${resultPrice.slice(-1)} ₽`;
- };
 
-const counterBTNS = document.querySelectorAll(".counter-button");
-const counterText = document.querySelectorAll(".counter");
-
-for(const elem of counterBTNS) {
-        for(let item of JSON.parse(localStorage.getItem("foodItems"))) {
-            elem.addEventListener("click", (event) => {
-                if(event.target.id == item.foodId) {
-                    for(let text of counterText) {
-                        text.textContent = parseInt(text.textContent) + 1;
-                        item.foodCount = parseInt(counterText.textContent);
-                    }
-                }
-            });
-        }
-}
+};
