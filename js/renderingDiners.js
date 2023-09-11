@@ -1,6 +1,7 @@
 export async function renderingDiners() {
-    fetch("../db/db.json").then((response) => response.json()).then(
-        (json) => {
+    fetch("../db/db.json")
+        .then((response) => response.json())
+        .then((json) => {
             const container = document.querySelector(".cards-restaurants");
             for(let elem of json.db.partners) {
                 const itemURL = document.createElement("a");

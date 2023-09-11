@@ -1,6 +1,7 @@
 async function renderingProducts(filename) {
-    fetch(`../db/${filename}`).then((response) => response.json()).then(
-        (json) => {
+    fetch(`../db/${filename}`)
+        .then((response) => response.json())
+        .then((json) => {
             const container = document.querySelector(".cards-menu");
             for(let elem of json) {
                 const itemDiv = document.createElement("div");
